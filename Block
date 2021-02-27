@@ -1,3 +1,10 @@
 public class Block{
-  
+  private String UUID, firstName, lastName, hash;
+
+  public Block(String UUID, String firstName, String lastName, String hash){
+    this.UUID = UUID;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.hash = hash;
+  }
 }
