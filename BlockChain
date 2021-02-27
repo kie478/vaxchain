@@ -2,7 +2,7 @@ public class BlockChain{
   private List<Block> chain;
   public BlockChain(){
     chain = new ArrayList<Block>();
-    chain.put(createGenesisBlock());
+    chain.add(createGenesisBlock());
   }
   
   private Block createGenesisBlock()
@@ -13,7 +13,7 @@ public class BlockChain{
   public void addBlock(Block block)
   {
     block.setPreviousHash(block.getPreviousBlock().hash)
-    chain.push(block);
+    chain.add(block);
   }
   
   public Block getPreviousBlock(Block block)
