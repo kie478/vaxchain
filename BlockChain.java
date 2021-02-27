@@ -10,7 +10,7 @@ public class BlockChain{
 
     private Block createGenesisBlock()
     {
-        return new Block(new VacinationData("FIRST_NAME", "LAST_NAME", 0), "0");
+        return new Block(new VaccinationData("FIRST_NAME", "LAST_NAME", 0), "0");
     }
 
     public void addBlock(Block block)
