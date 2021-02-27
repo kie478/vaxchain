@@ -1,10 +1,9 @@
 public class Block{
-  private String UUID, firstName, lastName, hash, timeStamp;
+  private String hash, timeStamp;
+  private VacinationData data;
 
-  public Block(String UUID, String firstName, String lastName, String hash){
-    this.UUID = UUID;
-    this.firstName = firstName;
-    this.lastName = lastName;
+  public Block(VacinationData data, String hash){
+    this.data = data;
     this.hash = hash;
     this.timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
   }
