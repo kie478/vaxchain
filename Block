@@ -1,8 +1,8 @@
 public class Block{
-  private String hash, timeStamp;
+  private String previousHash, timeStamp;
   private VacinationData data;
 
-  public Block(VacinationData data, String hash){
+  public Block(VacinationData data, String previousHash){
     this.data = data;
     this.hash = hash;
     this.timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
