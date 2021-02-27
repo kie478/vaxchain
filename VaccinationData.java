@@ -1,10 +1,10 @@
 package sample;
 
-public class VacinationData {
+public class VaccinationData {
     private String firstName,lastName;
     private int age;
 
-    public VacinationData(String firstName, String lastName, int age) {
+    public VaccinationData(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
