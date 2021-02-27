@@ -5,7 +5,7 @@ public class VacinationData {
 	public VacinationData(String firstName, String lastName, int key) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-    this.key = key;
+    		this.key = key;
 	}
 
 	public String getFirstName() {
