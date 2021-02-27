@@ -1,1 +1,23 @@
-
+public class BlockChain{
+  private List<Block> chain;
+  public BlockChain(){
+    chain = new List<>();
+    chain.push(createGenesisBlock());
+  }
+  
+  private Block createGenesisBlock()
+  {
+    return new Block(new V
+  }
+  
+  public void addBlock(Block block)
+  {
+    block.setPreviousHash(block.getPreviousBlock().hash)
+    chain.push(block);
+  }
+  
+  public Block getPreviousBlock(Block block)
+  {
+    return chain.get(chain.size() - 1);
+  }
+}
