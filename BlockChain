@@ -1,13 +1,13 @@
 public class BlockChain{
   private List<Block> chain;
   public BlockChain(){
-    chain = new List<>();
-    chain.push(createGenesisBlock());
+    chain = new ArrayList<Block>();
+    chain.put(createGenesisBlock());
   }
   
   private Block createGenesisBlock()
   {
-    return new Block(new V
+    return new Block(new VacinationData("FIRST_NAME", "LAST_NAME", 0), "0");
   }
   
   public void addBlock(Block block)
