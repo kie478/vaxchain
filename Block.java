@@ -3,9 +3,9 @@ import java.util.Date;
 
 public class Block{
     private String hash, previousHash, timeStamp;
-    private VacinationData data;
+    private VaccinationData data;
 
-    public Block(VacinationData data, String previousHash){
+    public Block(VaccinationData data, String previousHash){
         this.data = data;
         this.previousHash = "";
         this.timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
