@@ -1,6 +1,5 @@
 public class Block{
-  private String UUID, firstName, lastName, timeStamp;
-  public String hash;
+  private String UUID, firstName, lastName, hash, timeStamp;
 
   public Block(String UUID, String firstName, String lastName, String hash){
     this.UUID = UUID;
