@@ -1,4 +1,4 @@
-package sample;
+package BlockChainData;
 
 public class VaccinationData {
     private String firstName,lastName;
