@@ -222,12 +222,12 @@ public class Controller{
             int vaccID = Integer.parseInt(vaccinationID.getText());
             String vaccHash = vaccinationHash.getText();
             if(bChain.getBlock(vaccID).getHash().equals(vaccHash)){
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setHeaderText("Valid!");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setHeaderText("HASH FOUND IN SYSTEM!");
                 alert.showAndWait();
             }else{
                 Alert alert = new Alert(AlertType.ERROR);
-                alert.setHeaderText("Invalid!");
+                alert.setHeaderText("INVALID HASH!");
                 alert.showAndWait();
             }
         }
