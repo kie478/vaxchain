@@ -66,12 +66,46 @@ public class Controller{
         Button button = (Button) e.getSource();
         String sumbit = button.getText();
 
-        if(sumbit.equalsIgnoreCase("Submit"))
-            bChain.addBlock(new Block(new VaccinationData(firstName.getText(), lastName.getText(), Integer.parseInt(age.getText())), ""));
-
+        if(sumbit.equalsIgnoreCase("Submit")) {
+            try {
+		if (firstName.getText().contentEquals("")) {
+			throw new Exception("Invalid First Name");
+		}
+		for (int i = 0; i < firstName.getLength(); i++) {
+			if (!(Character.isLetter(firstName.getText().charAt(i)))) {
+				throw new Exception("Invalid First Name");
+			}
+		}
+		if (lastName.getText().contentEquals("")) {
+			throw new Exception("Invalid Last Name");
+		}
+		for (int i = 0; i < lastName.getLength(); i++) {
+			if (!(Character.isLetter(lastName.getText().charAt(i)))) {
+				throw new Exception("Invalid Last Name");
+			}
+		}
+		for (int i = 0; i < age.getLength(); i++) {
+			if ((Character.isLetter(age.getText().charAt(i)))) {
+				throw new Exception("Invalid Age");
+			}
+		}
+		if (age.getText().contentEquals("")) {
+			throw new Exception("Invalid Age");
+		}
+		if ((Integer.valueOf(age.getText()) > 110) || (Integer.valueOf(age.getText()) < 0)) {
+			throw new Exception("Invalid Age");
+		}
+		
+		
+		bChain.addBlock(new Block(new VaccinationData(firstName.getText(), lastName.getText(), Integer.parseInt(age.getText())), ""));
         firstName.setText("");
         lastName.setText("");
-        age.setText("");
+        age.setText("")
+		} catch (Exception d) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setHeaderText(d.getMessage());
+			alert.showAndWait();
+		}            
     }
 
     @FXML
