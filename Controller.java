@@ -129,6 +129,19 @@ public class Controller{
 
         tableView.setItems(getBlockData());
     }
+	    
+    @FXML
+    public void validateIdInput(ActionEvent e){
+        Button button = (Button) e.getSource();
+        String word = button.getText();
+
+        if(word.equalsIgnoreCase("Validate")){
+            int vaccID = Integer.parseInt(vaccinationID.getText());
+            if(bChain.getBlock(vaccID).getHash()){
+
+            }
+        }
+    }
 
     public ObservableList<BlockData> getBlockData() {
         ObservableList<BlockData> blockdata = FXCollections.observableArrayList();
