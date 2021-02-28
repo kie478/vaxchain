@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <top>
-       <Label text="Vaxinate Program" BorderPane.alignment="CENTER">
+       <Label text="Vaxchain Program" textFill="WHITE" BorderPane.alignment="CENTER">
              <font>
                 <Font name="Berlin Sans FB" size="46.0" />
              </font>
@@ -29,9 +29,9 @@
    <center>
       <VBox prefHeight="269.0" prefWidth="534.0" BorderPane.alignment="CENTER">
          <children>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
               <tabs>
-                <Tab text="Input Vaccination Data">
+                <Tab text="Input">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -51,9 +51,19 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="First Name:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Label text="Last Name:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <Label text="Age:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label text="First Name:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label text="Last Name:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                     <Label text="Age:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" >
+                                         <font>
+                                             <Font name="System Bold" size="12.0" />
+                                         </font>
+                                     </Label>
                                     <TextField fx:id="firstName" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Enter First Name...." GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets />
@@ -68,22 +78,71 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Display Blocks">
+                <Tab text="Display Block">
                     <VBox>
-                        <Button mnemonicParsing="false" onAction="#onDisplayCLick" text="Display" />
+                        <Button mnemonicParsing="false" onAction="#onDisplayCLick" text="Display">
+                           <VBox.margin>
+                              <Insets bottom="5.0" right="5.0" top="5.0" />
+                           </VBox.margin></Button>
                         <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
                           <columns>
-                            <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="First Name" />
-                              <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Last Name" />
-                              <TableColumn fx:id="ageColumn" prefWidth="54.0" text="Age" />
-                              <TableColumn fx:id="previousHashColumn" prefWidth="250.0" text="Previous Hash" />
-                              <TableColumn fx:id="hashColumn" prefWidth="250" text="Hash" />
+                            <TableColumn fx:id="firstNameColumn" prefWidth="75.0" sortable="false" text="First Name" />
+                              <TableColumn fx:id="lastNameColumn" prefWidth="75.0" sortable="false" text="Last Name" />
+                              <TableColumn fx:id="ageColumn" prefWidth="54.0" sortable="false" text="Age" />
+                              <TableColumn fx:id="previousHashColumn" prefWidth="250.0" sortable="false" text="Previous Hash" />
+                              <TableColumn fx:id="hashColumn" prefWidth="250" sortable="false" text="Hash" />
                           </columns>
                         </TableView>
                     </VBox>
                 </Tab>
                 <Tab text="Validate Hash">
-
+                    <AnchorPane>
+                        <children>
+                           <Button layoutX="274.0" layoutY="131.0" mnemonicParsing="false" onAction="#validateIdInput" text="Validate" />
+                            <Label layoutX="107.0" layoutY="44.0" prefHeight="33.0" prefWidth="167.0" text="Input Hash for validation:" textFill="WHITE" >
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Label>
+                           <TextField fx:id="vaccinationHash" layoutX="274.0" layoutY="48.0" promptText="Enter Your Hash..." />
+                           <TextField fx:id="vaccinationID" layoutX="276.0" layoutY="82.0" promptText="Enter Your Vaccination ID..." />
+                            <Label layoutX="129.0" layoutY="86.0" text="Input Vaccination ID:" textFill="WHITE">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Label>
+                        </children></AnchorPane>
+                </Tab>
+                <Tab text="Demonstation">
+                    <AnchorPane>
+                        <children>
+                           <Label layoutX="124.0" layoutY="43.0" text="VACCINATION ID: " textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label layoutX="122.0" layoutY="75.0" text="NEW FIRST NAME:" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Label>
+                            <Label layoutX="121.0" layoutY="109.0" text="NEW LAST NAME:" textFill="WHITE" >
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="156.0" layoutY="185.0" text="Is the blockchain valid?" textFill="WHITE">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Label>
+                           <TextField fx:id="result" layoutX="301.0" layoutY="181.0" prefHeight="26.0" prefWidth="141.0" promptText="Result of chain check" />
+                           <TextField fx:id="vaccinationID2" layoutX="244.0" layoutY="38.0" prefHeight="26.0" prefWidth="255.0" promptText="Enter Vaccination ID you want to change" />
+                           <TextField fx:id="demoFirstName" layoutX="244.0" layoutY="71.0" promptText="Enter new first name..." />
+                           <TextField fx:id="demoLastName" layoutX="244.0" layoutY="105.0" promptText="Enter new last name..." />
+                           <Button layoutX="244.0" layoutY="139.0" mnemonicParsing="false" onAction="#changeDetails" text="Change" />
+                           <Button layoutX="225.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeDetails" text="Check Validity" />
+                        </children></AnchorPane>
                 </Tab>
               </tabs>
                <VBox.margin>
@@ -102,6 +161,9 @@
    <bottom>
        <ImageView BorderPane.alignment="CENTER_RIGHT">
            <Image url="https://cdn.discordapp.com/attachments/814537266021138444/815337517019693117/vaxchainlogopart2.png" />
+         <BorderPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </BorderPane.margin>
        </ImageView>
    </bottom>
 </BorderPane>
